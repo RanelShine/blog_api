@@ -10,12 +10,14 @@ WORKDIR /app
 # Copier le fichier requirements.txt dans le conteneur
 COPY requirements.txt .
 
-# Mettre à jour pip, setuptools et wheel, puis installer les dépendances
-#RUN pip install --upgrade pip setuptools wheel && \
-RUN pip install -r requirements.txt
-
-# Installer les dépendances système (si tu utilises psycopg2 avec PostgreSQL)
+# Installer les dépendances système nécessaires pour psycopg2 (si applicable)
 RUN apt-get update && apt-get install -y libpq-dev gcc
+
+# Mettre à jour pip, setuptools et wheel, puis installer les dépendances Python
+RUN pip install --upgrade pip setuptools wheel -v && \
+    pip install -r requirements.txt -v
+
+
 
 
 # Copier le reste des fichiers du projet dans le conteneur
