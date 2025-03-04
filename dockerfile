@@ -17,6 +17,7 @@ RUN pip install --upgrade pip setuptools wheel && \
 # Installer les dépendances système (si tu utilises psycopg2 avec PostgreSQL)
 RUN apt-get update && apt-get install -y libpq-dev gcc
 
+
 # Copier le reste des fichiers du projet dans le conteneur
 COPY . .
 
