@@ -19,7 +19,7 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
       - name: Build Docker image
-        run: docker build -t blogapi/blogapiimage:latest .
+        run: docker build -t ranelle/blogapi:latest .
 
       - name: Push Docker image to Docker Hub
-        run: docker push blogapi/blogapiimage:latest
+        run: docker push ranelle/blogapi:latest
