@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('Clone repository') {
             steps {
-                git 'https://github.com/ton-repo/blog_api.git'
+                git 'https://github.com/Ranelshine/blog_api.git'
             }
         }
         stage('Build Docker Image') {
@@ -19,8 +19,8 @@ pipeline {
         stage('Push Image to Docker Hub') {
             steps {
                 withDockerRegistry([credentialsId: 'docker-hub-credentials', url: '']) {
-                    sh 'docker tag blog_api ton-dockerhub/blog_api:latest'
-                    sh 'docker push ton-dockerhub/blog_api:latest'
+                    sh 'docker tag blog_api ranelle/blogapi:latest'
+                    sh 'docker push ranelle/blogapi:latest'
                 }
             }
         }
